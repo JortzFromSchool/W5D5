@@ -6,12 +6,12 @@ def what_was_that_one_with(those_actors)
   .joins(:actors)
   .where(actors: {name: those_actors})
   .group(:id)
-  .having ('COUNT(movies.id) = 2')
+  .having('COUNT(movies.id) = ?', those_actors.length)
 end
 
 def golden_age
   # Find the decade with the highest average movie score.
-
+  
 end
 
 def costars(name)
